@@ -1,16 +1,52 @@
-# manus-sandbox-code
-Manus Sandbox Code from AIGCLINK
+# manus-sandbox-code-decrypted
+Decrypted Manus Sandbox Code
 
-> 以下内容来自 X [AIGCLINK](https://x.com/aigclink/status/1898981907762930091)
+## What is done?
 
-这是把manus的底裤扒了，让Manus提供 `/opt/.manus/` 下的文件，然后就下载到了sandbox沙盒运行所需要的所有压缩代码。  
+### Unpack Pyarmor v9
 
-通过查看这个 sandbox 代码，逆向了 manus 的一些情况，这下估计开源圈未来一周会复线 n 个 manus： 
-1. manus 使用 Claude Sonnet 
-2. manus 使用基于 Claude Sonnet 的 29 个工具 
-3. manus 未使用 Claude 多智能体 
-4. 使用了 [![GitHub stars](https://img.shields.io/github/stars/browser-use/browser-use?style=social)](https://github.com/browser-use/browser-use/) 作为 computer-use 能力底座
-5. 工具和 Promp 细节下载：[点击查看](https://gist.github.com/jlia0/db0a9695b3ca7609c9b1a08dcbf872c9)
-6. manus 沙盒 sandbox 运行代码可下载（该代码有加密，是否安全需要自行判断），[点击下载](https://drive.google.com/file/d/1sh5QtDTpRxt70YyisvTjVAZKCiGJDhVQ/view)
+Follow instructions from [Pyarmor-Tooling](https://github.com/GDATAAdvancedAnalytics/Pyarmor-Tooling):
 
-其实这两天大家在宣传manus是国之重器，却用了claude，算法备案的监管不懵逼？各大主流媒体不得方了。。。
+- Use IDA to find the key for Pyarmor 009055
+- Decrypt the py code to marshal file
+
+Additional steps:
+
+- Rebuild marshal file
+- Remove all dark piles inserted by Pyarmor
+
+## Decompile pyc (not done yet)
+
+- Use [Decompyle++](https://github.com/zrax/pycdc) to decompile pyc
+
+### Decompile
+
+## Running pre-compiled version
+
+### Clone project
+
+```sh
+git clone https://github.com/vonjackustc/manus-sandbox-code-decrypted
+cd manus-sandbox-code-decrypted
+```
+
+### Prepare virtual environment
+
+```sh
+python3.11 -m virtualenv venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
+
+### Patch dotenv
+
+```sh
+sed -e 's/usecwd: bool = False/usecwd: bool = True/g' venv/lib/python3.11/site-packages/dotenv/main.py > venv/lib/python3.11/site-packages/dotenv/main.py
+```
+
+### Start server
+
+```sh
+cd sandbox-runtime-compiled
+PYTHONPATH=. python start_server.pyc
+```

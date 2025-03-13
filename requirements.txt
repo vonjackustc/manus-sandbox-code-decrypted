@@ -1,0 +1,8 @@
+fastapi>=0.68.0
+uvicorn>=0.15.0
+websockets>=10.0
+bashlex
+pexpect
+pydantic
+httpx
+browser-use==0.1.36
