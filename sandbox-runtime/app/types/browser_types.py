@@ -58,6 +58,7 @@ class BrowserInputAction(BaseModel):
     index: int | None = None
     coordinate_x: float | None = None
     coordinate_y: float | None = None
+    text: str
     press_enter: bool = None
 
 class BrowserPressKeyAction(BaseModel):

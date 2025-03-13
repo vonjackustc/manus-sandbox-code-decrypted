@@ -12,9 +12,9 @@ class MultipartUploadRequest(BaseModel):
 
 class PartUploadResult(BaseModel):
     part_number: int
-    success: bool = ''
+    etag: Optional[str] = ''
+    success: bool
     error: Optional[str] = None
-
 
 class MultipartUploadResponse(BaseModel):
     status: str

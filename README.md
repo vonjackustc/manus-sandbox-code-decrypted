@@ -17,7 +17,8 @@ Additional steps:
 
 ### Decompile pyc (not done yet)
 
-- Use [Decompyle++](https://github.com/zrax/pycdc) to decompile pyc
+- Use [Decompyle++](https://github.com/zrax/pycdc) (not good)
+- Use [Pylingual](https://github.com/syssec-utd/pylingual) (much better!)
 
 ## Running pre-compiled version
 

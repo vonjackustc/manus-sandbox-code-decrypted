@@ -1,6 +1,6 @@
 from typing import Literal
 from pydantic import BaseModel
-from browser_types import BrowserAction, BrowserActionResult
+from .browser_types import BrowserAction, BrowserActionResult
 
 TextEditorCommand = Literal['view', 'create', 'write', 'str_replace', 'find_content', 'find_file']
 
@@ -27,7 +27,6 @@ class FileInfo(BaseModel):
     path: str
     content: str
     old_content: str | None = None
-
 
 class TextEditorActionResult(CommonApiResult):
     result: str
@@ -63,7 +62,7 @@ class TerminalInputMessage(BaseModel):
     mode: TerminalCommandMode | None = None
     exec_dir: str | None = None
     
-    def create_response(self, type, result, output, terminal_status, sub_command_index):
+    def create_response(self, type: TerminalOutputMessageType, result: str | None, output: list[str], terminal_status: TerminalStatus, sub_command_index: int=0):
         return TerminalOutputMessage(type = type, terminal = self.terminal, action_id = self.action_id, sub_command_index = sub_command_index, result = result, output = output, terminal_status = terminal_status)
 
 class TerminalOutputMessage(BaseModel):
