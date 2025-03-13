@@ -15,7 +15,7 @@ Additional steps:
 - Rebuild marshal file
 - Remove all dark piles inserted by Pyarmor
 
-### Decompile pyc (not done yet)
+### Decompile PYC (partial done)
 
 - Use [Decompyle++](https://github.com/zrax/pycdc) (not good)
 - Use [Pylingual](https://github.com/syssec-utd/pylingual) (much better!)
