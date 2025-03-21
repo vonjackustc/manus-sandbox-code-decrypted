@@ -40,7 +40,7 @@ pip install -r requirements.txt
 ### Patch dotenv
 
 ```sh
-sed -e 's/usecwd: bool = False/usecwd: bool = True/g' venv/lib/python3.11/site-packages/dotenv/main.py > venv/lib/python3.11/site-packages/dotenv/main.py
+sed -i 's/usecwd: bool = False/usecwd: bool = True/g' venv/lib/python3.11/site-packages/dotenv/main.py 
 ```
 
 ### Start server
